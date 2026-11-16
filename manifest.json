@@ -1,0 +1,16 @@
+{
+  "name": "우리 가족 기록장",
+  "short_name": "가족 기록장",
+  "description": "4인 가족용 할 일·용돈·미션·도장·채팅·공부 타이머 대시보드",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF8F1",
+  "theme_color": "#FFE3EC",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
