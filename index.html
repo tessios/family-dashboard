@@ -1609,7 +1609,7 @@
     var s = state.sync;
     openModal('<h3>☁️ 가족과 함께 쓰기</h3><div class="sub">Supabase 무료 프로젝트를 연결하면 가족 폰·태블릿이 같은 기록을 함께 써요.</div>' +
       '<div class="field"><label>Project URL</label><input id="syncUrl" placeholder="https://xxxx.supabase.co" value="' + esc(s.url||'') + '"></div>' +
-      '<div class="field"><label>Anon public key</label><input id="syncKey" placeholder="eyJhbGciOi..." value="' + esc(s.key||'') + '"></div>' +
+      '<div class="field"><label>Anon public key</label><input id="syncKey" placeholder="anon public key" value="' + esc(s.key||'') + '"></div>' +
       '<div id="syncState" style="font-size:11px;font-weight:700;color:' + (syncConfigured()?'#2E7D6B':'#A49CA2') + ';margin:2px 0 8px">' + (syncConfigured()?'연결됨':'아직 연결 전') + '</div>' +
       '<div class="grid2"><button class="btn soft" data-act="sync-test">연결 테스트</button><button class="btn primary" data-act="sync-save">저장</button></div>' +
       '<button class="btn ghost" style="width:100%;margin-top:8px" data-act="sync-clear">연결 해제</button>' +
