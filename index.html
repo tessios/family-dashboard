@@ -2034,6 +2034,7 @@
     }
   });
 
+  window.addEventListener('hashchange', function(){ applyInvite(); });
   window.addEventListener('error', function(ev){
     (window.__errors = window.__errors || []).push(String(ev.message || ev.error || 'error'));
   });
