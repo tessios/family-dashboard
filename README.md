@@ -87,3 +87,4 @@ GitHub Pages 기준:
 - `screenshot-09-sync.png` 동기화 설정
 - `screenshot-10-kid-home.png`, `screenshot-14-kid-tasks.png` 리아 눈높이 모드
 - `screenshot-12-timer-done.png` 집중 완료 알림
+- `screenshot-15-live-pages.png` GitHub Pages 배포 화면
