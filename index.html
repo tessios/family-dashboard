@@ -243,7 +243,7 @@
 
   /* ---------- tabbar ---------- */
   .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:0 10px calc(8px + env(safe-area-inset-bottom)) 10px;pointer-events:none}
-  .tabbar-inner{max-width:452px;margin:0 auto;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:22px;display:grid;grid-template-columns:repeat(6,1fr);padding:6px 4px;box-shadow:0 10px 28px rgba(100,80,90,.16);pointer-events:auto;border:1px solid rgba(255,255,255,.9)}
+  .tabbar-inner{max-width:452px;margin:0 auto;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:22px;display:grid;grid-template-columns:repeat(7,1fr);padding:6px 3px;box-shadow:0 10px 28px rgba(100,80,90,.16);pointer-events:auto;border:1px solid rgba(255,255,255,.9)}
   .tabbar button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0 5px;border-radius:15px;color:#A49CA2;font-size:9px;font-weight:700;min-height:46px;letter-spacing:-.3px}
   .tabbar button .e{font-size:19px;line-height:1.1;filter:grayscale(.55);transition:.15s}
   .tabbar button.on{color:#3E3A46;background:#FBF2EC}
@@ -354,6 +354,101 @@
   .lv-mini button .e{font-size:15px;display:block;margin-bottom:1px}
   @keyframes spinWheel{to{transform:rotate(360deg)}}
 
+  /* ---------- 기록: 펫 · 독서 · 키·몸무게 · 주간 리포트 ---------- */
+  .rec-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:1px 0 9px}
+  .rec-chips button{font-size:10.5px;font-weight:800;padding:9px 2px;border-radius:13px;background:#fff;border:1.5px solid var(--line);color:#7C7480;min-height:38px;letter-spacing:-.3px;white-space:nowrap;line-height:1.2}
+  .rec-chips button.on{background:#3E3A46;border-color:#3E3A46;color:#fff}
+
+  .pet-card{background:linear-gradient(150deg,#FFF5EE 0%,#F3FBF8 58%,#FFF8E2 100%);border:1px solid #fff}
+  .pet-stage{display:flex;align-items:center;gap:13px;margin-top:2px}
+  .pet-orb{width:94px;height:94px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 38%,#fff 0%,rgba(255,255,255,.55) 55%,rgba(255,255,255,.12) 100%);box-shadow:inset 0 -7px 18px rgba(170,140,130,.13),0 6px 16px rgba(170,140,130,.10);animation:floaty 3.8s ease-in-out infinite;position:relative}
+  .pet-orb em{line-height:1;font-style:normal;filter:drop-shadow(0 5px 9px rgba(140,110,100,.2))}
+  .pet-orb .crown{position:absolute;top:-7px;right:1px;font-size:16px;animation:floaty 3.8s ease-in-out infinite}
+  .pet-nm{font-size:16.5px;font-weight:900;letter-spacing:-.4px;line-height:1.2;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .pet-meta{font-size:11px;color:#8B8494;font-weight:700;margin-top:2px}
+  .pet-exp{font-size:10px;color:#8B8494;font-weight:700;margin-top:6px;display:flex;justify-content:space-between;gap:6px}
+  .pet-bars{margin-top:12px}
+  .pet-bar{display:flex;align-items:center;gap:8px;margin-top:7px}
+  .pet-bar .pb-l{font-size:11px;font-weight:800;width:64px;flex:none;color:#6E6672}
+  .pet-bar .prog{flex:1;margin-top:0}
+  .pet-bar .pb-v{font-size:10px;font-weight:800;color:#8B8494;width:32px;text-align:right;flex:none;font-variant-numeric:tabular-nums}
+  .care-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:13px}
+  .care-btn{background:#fff;border:1.5px solid #F0E7E2;border-radius:15px;padding:9px 3px;text-align:center;box-shadow:0 3px 9px rgba(126,104,112,.05);min-height:64px;transition:transform .12s}
+  .care-btn .e{font-size:21px;display:block;line-height:1.15}
+  .care-btn b{display:block;font-size:11px;font-weight:800;margin-top:2px}
+  .care-btn span{display:block;font-size:9px;color:#A49CA2;font-weight:700;margin-top:1px}
+  .care-btn:disabled{opacity:.42}
+  .care-btn:active:not(:disabled){transform:scale(.97)}
+  .pet-row{display:flex;gap:6px;margin-top:11px}
+  .pet-row input{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:13px;padding:9px 12px;font-size:13px;background:#fff;outline:0}
+  .pet-row .btn{min-height:40px;padding:0 12px;border-radius:13px;font-size:12px;flex:none}
+  .pet-note{font-size:10px;color:#A49CA2;line-height:1.5;margin-top:10px}
+  .pet-mini-row{display:flex;gap:6px;margin-top:11px}
+  .pet-mini{flex:1;background:#fff;border-radius:13px;padding:8px 3px;text-align:center;font-size:9.5px;font-weight:800;color:#8B8494;line-height:1.3}
+  .pet-mini b{display:block;font-size:12.5px;font-weight:900;color:var(--ink);margin-top:1px}
+  .pet-mini .e{font-size:14px;display:block;margin-bottom:1px;line-height:1.1}
+  .pet-log{font-size:10.5px;color:#8B8494;display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px dashed #F1EAE5}
+  .pet-log:last-child{border-bottom:0}
+  .pet-log b{color:var(--ink);font-weight:800}
+  .pet-logbox{margin-top:12px;border-top:1px solid #F4EEE9;padding-top:9px}
+  .kind-chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+  .kind-chips button{font-size:11px;font-weight:700;padding:6px 10px;border-radius:999px;background:#F7F2EE;color:#7C7480}
+  .kind-chips button.on{background:#3E3A46;color:#fff}
+
+  .book-item{padding:9px 0;border-bottom:1px dashed #F1EAE5}
+  .book-item:last-child{border-bottom:0}
+  .book-h{display:flex;align-items:center;gap:7px}
+  .book-h img{width:26px;height:26px;border-radius:50%;object-fit:cover;flex:none;background:#eee}
+  .book-t{font-size:13.5px;font-weight:800;letter-spacing:-.2px;flex:1;min-width:0;line-height:1.25}
+  .book-st{font-size:11px;color:#E4A93C;letter-spacing:-.5px;flex:none}
+  .book-d{font-size:10px;color:#A49CA2;font-weight:700;margin-top:3px}
+  .book-r{font-size:11.5px;color:#7C7480;line-height:1.5;margin-top:4px;background:#FBF7F4;border-radius:11px;padding:6px 9px;word-break:break-word}
+  .book-del{font-size:15px;color:#C9C1BE;padding:2px 5px;flex:none}
+  .chip-pick{display:flex;gap:5px;flex-wrap:wrap}
+  .chip-pick button{font-size:11.5px;font-weight:700;padding:7px 11px;border-radius:999px;background:#F7F2EE;color:#7C7480;border:1.5px solid transparent}
+  .chip-pick button.on{background:#FFF1F4;border-color:#FFC2CE;color:#B4506C}
+  .stars-pick{display:flex;gap:3px}
+  .stars-pick button{font-size:28px;line-height:1;color:#E4DAD5;padding:0 2px;transition:transform .12s}
+  .stars-pick button.on{color:#F2B33D}
+  .stars-pick button:active{transform:scale(1.15)}
+
+  .grow-sum{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+  .grow-box{background:#FBF8F5;border-radius:14px;padding:9px 10px}
+  .grow-box .lb{font-size:10px;font-weight:800;color:#8B8494}
+  .grow-box .v{font-size:18px;font-weight:900;letter-spacing:-.5px;margin-top:1px}
+  .grow-box .v small{font-size:10.5px;font-weight:800;color:#8B8494;margin-left:2px;letter-spacing:0}
+  .grow-box .dl{font-size:10px;font-weight:800;color:#2E7D6B;margin-top:1px}
+  .grow-box .dl.down{color:#B4692A}
+  .spark{width:100%;height:42px;display:block;margin-top:3px}
+  .grow-rec{display:flex;align-items:center;gap:8px;font-size:11.5px;padding:7px 0;border-bottom:1px dashed #F1EAE5}
+  .grow-rec:last-child{border-bottom:0}
+  .grow-rec .gd{font-weight:800;width:56px;flex:none;color:#6E6672;font-variant-numeric:tabular-nums}
+  .grow-rec .gv{flex:1;min-width:0;color:#5E5768}
+  .grow-rec .gv b{font-weight:800;color:var(--ink)}
+  .grow-rec .gx{font-size:14px;color:#C9C1BE;padding:2px 4px;flex:none}
+
+  .wk-bars{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;height:104px;margin-top:8px;align-items:end}
+  .wk-bars .wb{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:3px}
+  .wk-bars .wb .b{width:100%;border-radius:7px 7px 3px 3px;background:linear-gradient(180deg,#9FE0CE,#B8E6D9);min-height:3px}
+  .wk-bars .wb.today .b{background:linear-gradient(180deg,#FFB7C5,#FFD3B6)}
+  .wk-bars .wb .n{font-size:9px;font-weight:800;color:#A49CA2}
+  .wk-bars .wb.today .n{color:#C0667F}
+  .wk-bars .wb .c{font-size:9.5px;font-weight:800;color:#6E6672;font-variant-numeric:tabular-nums}
+  .wk-p{padding:9px 0;border-bottom:1px dashed #F1EAE5}
+  .wk-p:last-child{border-bottom:0}
+  .wk-p .h{display:flex;align-items:center;gap:7px}
+  .wk-p .h img{width:26px;height:26px;border-radius:50%;object-fit:cover;flex:none}
+  .wk-p .h b{font-size:12.5px}
+  .wk-p .h .r{margin-left:auto;font-size:10.5px;font-weight:800;color:#8B8494;white-space:nowrap}
+  .wk-p .m{font-size:10px;color:#8B8494;font-weight:700;margin-top:4px;display:flex;gap:9px;flex-wrap:wrap}
+  .wk-p .prog{margin-top:5px}
+  .wk-cmp{font-size:10.5px;color:#7C7480;font-weight:700;background:#FBF7F4;border-radius:11px;padding:7px 10px;margin-top:10px;line-height:1.55}
+  .wk-cmp b{color:var(--ink);font-weight:800}
+  .wk-cmp b.up{color:#2E7D6B}
+  .wk-cmp b.down{color:#B4692A}
+  html[data-theme="dark"] .wk-cmp b.up{color:#8FE0C8}
+  html[data-theme="dark"] .wk-cmp b.down{color:#F0B37A}
+
   /* ---------- 다크 모드(밤 모드) ---------- */
   html[data-theme="dark"]{
     --cream:#15131A; --ink:#F2EDF6; --sub:#A79FB4; --line:#332D3D; --card:#221D29;
@@ -425,6 +520,32 @@
   html[data-theme="dark"] .invite-box{background:#1C2B27;border-color:#2F544B}
   html[data-theme="dark"] .invite-url{background:#15131A;border-color:#2F544B;color:#BFE8DC}
 
+  /* ---------- 기록: 다크 모드 ---------- */
+  html[data-theme="dark"] .rec-chips button{background:#221D29;border-color:#332D3D;color:#CFC7DA}
+  html[data-theme="dark"] .rec-chips button.on{background:#F2EDF6;border-color:#F2EDF6;color:#221D29}
+  html[data-theme="dark"] .pet-card{background:linear-gradient(150deg,#2A2130 0%,#1E2C28 58%,#2B2519 100%)}
+  html[data-theme="dark"] .pet-orb{background:radial-gradient(circle at 50% 38%,#3A3346 0%,#2A2433 72%);box-shadow:inset 0 -7px 18px rgba(0,0,0,.32)}
+  html[data-theme="dark"] .pet-meta,html[data-theme="dark"] .pet-exp,html[data-theme="dark"] .pet-bar .pb-l,html[data-theme="dark"] .pet-bar .pb-v,html[data-theme="dark"] .pet-note{color:#A79FB4}
+  html[data-theme="dark"] .care-btn{background:#2A2433;border-color:#3A3344}
+  html[data-theme="dark"] .pet-mini{background:#2A2433;color:#CFC7DA}
+  html[data-theme="dark"] .care-btn span{color:#A79FB4}
+  html[data-theme="dark"] .pet-row input{background:#2A2433;border-color:#3A3344;color:#F2EDF6}
+  html[data-theme="dark"] .kind-chips button{background:#2A2433;color:#CFC7DA}
+  html[data-theme="dark"] .kind-chips button.on{background:#F2EDF6;color:#221D29}
+  html[data-theme="dark"] .pet-logbox{border-top-color:#332D3D}
+  html[data-theme="dark"] .pet-log{color:#A79FB4;border-bottom-color:#332D3D}
+  html[data-theme="dark"] .book-item,html[data-theme="dark"] .grow-rec,html[data-theme="dark"] .wk-p{border-bottom-color:#332D3D}
+  html[data-theme="dark"] .book-r{background:#2A2433;color:#CFC7DA}
+  html[data-theme="dark"] .chip-pick button{background:#2A2433;color:#CFC7DA}
+  html[data-theme="dark"] .chip-pick button.on{background:#4A2F3C;color:#FFD9C0;border-color:#7A4A58}
+  html[data-theme="dark"] .stars-pick button{color:#4B4159}
+  html[data-theme="dark"] .stars-pick button.on{color:#F2B33D}
+  html[data-theme="dark"] .grow-box{background:#2A2433}
+  html[data-theme="dark"] .grow-rec .gv{color:#CFC7DA}
+  html[data-theme="dark"] .wk-bars .wb .b{background:linear-gradient(180deg,#3E8A76,#2F6D5D)}
+  html[data-theme="dark"] .wk-bars .wb.today .b{background:linear-gradient(180deg,#8A5A6B,#8A6B52)}
+  html[data-theme="dark"] .wk-cmp{background:#2A2433;color:#CFC7DA}
+
   /* 7살 눈높이 모드 */
   body.kid .task{padding:15px 2px}
   body.kid .task .t-title{font-size:17px;font-weight:800}
@@ -470,6 +591,7 @@
       <div id="scheduleCard"></div>
       <div id="taskCard"></div>
       <div id="missionHome"></div>
+      <div id="petMiniCard"></div>
       <div id="stampMiniCard"></div>
       <div id="familyCard"></div>
       <div id="rewardCard"></div>
@@ -517,6 +639,11 @@
       <div id="livingTab"></div>
     </section>
 
+    <!-- RECORD (펫 · 독서 · 키·몸무게 · 주간 리포트) -->
+    <section id="view-record" class="view hidden">
+      <div id="recordTab"></div>
+    </section>
+
     <!-- SETTINGS -->
     <section id="view-settings" class="view hidden">
       <div id="settingsBody"></div>
@@ -531,6 +658,7 @@
     <button data-tab="chat"><span class="e">💬</span>채팅</button>
     <button data-tab="study"><span class="e">⏱</span>공부방</button>
     <button data-tab="living"><span class="e">🎡</span>살림</button>
+    <button data-tab="record"><span class="e">📔</span>기록</button>
     <button data-tab="settings"><span class="e">⚙️</span>설정</button>
   </div>
 </nav>
@@ -705,6 +833,9 @@
       rouletteLog:[],
       chat:[{id:uid(), who:'system', kind:'text', text:'우리 가족 채팅방이에요. 스티커와 음성 메시지로 인사해 보세요!', at:Date.now()}],
       events:[],
+      pet:petDefault(),
+      books:[],
+      growth:[],
       settings:{
         notifyBatch:true, morning:'08:00', evening:'20:00',
         tabletAlarm:true, tabletOff:'21:30',
@@ -737,6 +868,24 @@
     if(!Array.isArray(next.redeems)) next.redeems = [];
     if(!Array.isArray(next.chores) || !next.chores.length) next.chores = defaultState().chores;
     if(!Array.isArray(next.rouletteLog)) next.rouletteLog = [];
+    /* 2026-11 추가 기능(펫·독서·키·몸무게)이 없던 예전 기록도 그대로 쓸 수 있게 모양을 맞춘다 */
+    next.pet = adoptPet(next.pet);
+    next.books = Array.isArray(next.books) ? next.books.filter(function(b){ return b && b.title; }) : [];
+    next.books.forEach(function(b){
+      b.id = b.id || uid();
+      b.who = FAMILY[b.who] ? b.who : 'mom';
+      b.date = /^\d{4}-\d{2}-\d{2}$/.test(String(b.date||'')) ? b.date : todayKey();
+      b.rating = Math.max(0, Math.min(5, Number(b.rating)||0));
+      b.title = String(b.title||'').slice(0,60);
+      b.review = String(b.review||'').slice(0,200);
+    });
+    next.growth = Array.isArray(next.growth) ? next.growth.filter(function(g){ return g && FAMILY[g.who]; }) : [];
+    next.growth.forEach(function(g){
+      g.id = g.id || uid();
+      g.date = /^\d{4}-\d{2}-\d{2}$/.test(String(g.date||'')) ? g.date : todayKey();
+      g.height = Math.max(0, Math.min(260, Number(g.height)||0));
+      g.weight = Math.max(0, Math.min(250, Number(g.weight)||0));
+    });
     return next;
   }
 
@@ -773,6 +922,9 @@
     }
     state.walletLog = state.walletLog.slice(-300);
     if(state.chat.length > 300) state.chat = state.chat.slice(-300);
+    if(Array.isArray(state.books) && state.books.length > 400) state.books = state.books.slice(-400);
+    if(Array.isArray(state.growth) && state.growth.length > 1200) state.growth = state.growth.slice(-1200);
+    if(state.pet && Array.isArray(state.pet.care) && state.pet.care.length > 80) state.pet.care = state.pet.care.slice(-80);
     var today = todayKey();
     Object.keys(state.fired).forEach(function(k){ if(k.indexOf(today) !== 0 && k < today) delete state.fired[k]; });
   }
@@ -1155,6 +1307,9 @@
     // 미션 (홈)
     $('#missionHome').innerHTML = missionCardHtml(false);
 
+    // 우리 집 펫 (홈 미니)
+    if($('#petMiniCard')) $('#petMiniCard').innerHTML = petCardHtml(false);
+
     // 도장 미니
     var wk = weekStamps();
     $('#stampMiniCard').innerHTML = '<div class="card">' +
@@ -1332,6 +1487,7 @@
       else if(t.k === 'star'){ state.wallet.ria += t.r; addLog('ria','star',t.r,t.t); }
       if(t.k !== 'none') floatFrom(el, t.k==='money'?'💰':'⭐', t.k==='money' ? ('+' + fmt(t.r) + '원') : ('+별 ' + t.r));
       if(t.k === 'none') chime('done');
+      petExpPatch(2);   // 가족이 할 일을 하나 끝낼 때마다 펫도 조금 자라요
     } else {
       if(t.k === 'money' || t.k === 'star'){
         var w = t.k === 'money' ? 'seojin' : 'ria';
@@ -1366,6 +1522,7 @@
     d.mission.done = true; d.mission.doneAt = Date.now();
     state.wallet.seojin += 500; addLog('seojin','money',500,'가족 미션 보너스');
     state.wallet.ria += 2; addLog('ria','star',2,'가족 미션 보너스');
+    petExpPatch(6);
     save(); renderAll();
     chime('done'); confetti(30);
     banner('🎯','가족 미션 완료!','도장판에 🎯 도장이 찍혔어요. 서진이(뽑시) +500원, 리아(먹짱이) +별2 보너스!', 9000);
@@ -1598,6 +1755,7 @@
     var d = ensureDay(todayKey());
     d.studyMinutes += mins;
     d.studySessions = (d.studySessions||0) + 1;
+    petExpPatch(3);
     save(); renderTimerCard();
     chime('alarm'); confetti(24);
     banner('🎉','집중 완료!', mins + '분 공부했어요. 오늘 총 ' + d.studyMinutes + '분! 잠깐 쉬고 물 한 잔 마셔요.', 15000);
@@ -1713,7 +1871,7 @@
       '<div class="card" style="background:#FBF7F4">' +
         '<div class="card-h"><h2>🔒 개인정보</h2></div>' +
         '<div style="font-size:10.5px;color:#8B8494;line-height:1.6">이 페이지는 가족용으로 만든 웹앱이에요. 전화번호·집 주소·학교·계정 비밀번호는 넣지 않았어요. 검색엔진에 노출되지 않도록 noindex로 설정했고, 동기화 키는 브라우저 저장소에만 보관해요. 공개 주소를 아는 사람은 페이지를 열 수 있으니 민감한 내용은 적지 마세요.</div>' +
-        '<div style="font-size:9.5px;color:#B3AAAE;margin-top:8px">버전 1.1 · 우리 가족 기록장</div>' +
+        '<div style="font-size:9.5px;color:#B3AAAE;margin-top:8px">버전 1.2 · 우리 가족 기록장 · 2026-11-18 펫·독서·키/몸무게·주간 리포트 추가</div>' +
       '</div>';
   }
 
@@ -2408,6 +2566,558 @@
       }
     }
     checkAlarms();
+    if(Date.now() - lastPetPaint > 20000){ lastPetPaint = Date.now(); paintPetBars(); }
+  }
+
+  /* ============================================================
+     기록 ①: 애완동물 키우기 — 가족이 함께 돌보고 키워요
+     ============================================================ */
+  var PET_KINDS = [
+    {k:'dog',    e:'🐶', n:'강아지'},
+    {k:'cat',    e:'🐱', n:'고양이'},
+    {k:'hamster',e:'🐹', n:'햄스터'},
+    {k:'rabbit', e:'🐰', n:'토끼'},
+    {k:'dino',   e:'🦖', n:'공룡'}
+  ];
+  /* 경험치로 자라는 단계: 알 → 아기 → 어린이 → 청소년 → 어른 */
+  var PET_STAGES = [
+    {at:0,   n:'알',     size:38},
+    {at:20,  n:'아기',   size:50},
+    {at:60,  n:'어린이', size:62},
+    {at:140, n:'청소년', size:72},
+    {at:260, n:'어른',   size:82, crown:true}
+  ];
+  var PET_ACTS = [
+    {k:'feed',  st:'full',  e:'🍖', t:'밥 주기',  s:'포만감', exp:6, cool:5},
+    {k:'play',  st:'fun',   e:'🎾', t:'놀아주기', s:'기분',   exp:8, cool:5},
+    {k:'clean', st:'clean', e:'🛁', t:'씻기기',   s:'청결',   exp:5, cool:5}
+  ];
+  /* 돌보지 않으면 이 시간(분)만에 100% → 0%까지 줄어요 */
+  var PET_EMPTY_MIN = {full:900, fun:1200, clean:1800};
+  var recTab = 'pet';
+  var bookFilter = 'all';
+  var bookDraft = null;
+  var growthWho = '';
+  var growDraft = null;
+  var reportOffset = 0;
+  var lastPetPaint = 0;
+
+  function petDefault(){
+    return {kind:'dog', name:'', exp:0, bornAt:Date.now(), at:{feed:0, play:0, clean:0}, care:[]};
+  }
+
+  /* 펫 기록이 없던 예전 저장본·서버본도 자연스럽게 이어 쓸 수 있게 맞춘다 */
+  function adoptPet(src){
+    var base = petDefault();
+    var next = Object.assign(base, (src && typeof src === 'object') ? src : {});
+    if(!next.at || typeof next.at !== 'object') next.at = {};
+    PET_ACTS.forEach(function(a){ if(typeof next.at[a.k] !== 'number' || next.at[a.k] < 0) next.at[a.k] = 0; });
+    if(typeof next.exp !== 'number' || !isFinite(next.exp) || next.exp < 0) next.exp = 0;
+    if(typeof next.name !== 'string') next.name = '';
+    if(!PET_KINDS.some(function(x){ return x.k === next.kind; })) next.kind = base.kind;
+    if(!Array.isArray(next.care)) next.care = [];
+    next.care = next.care.filter(function(c){ return c && typeof c.at === 'number'; }).slice(-80);
+    if(typeof next.bornAt !== 'number' || !next.bornAt) next.bornAt = Date.now();
+    return next;
+  }
+
+  function petKind(k){
+    for(var i=0;i<PET_KINDS.length;i++){ if(PET_KINDS[i].k === k) return PET_KINDS[i]; }
+    return PET_KINDS[0];
+  }
+  function petAct(k){
+    for(var i=0;i<PET_ACTS.length;i++){ if(PET_ACTS[i].k === k) return PET_ACTS[i]; }
+    return null;
+  }
+  function petStageInfo(exp){
+    var idx = 0;
+    for(var i=0;i<PET_STAGES.length;i++){ if(exp >= PET_STAGES[i].at) idx = i; }
+    var st = PET_STAGES[idx], nx = PET_STAGES[idx+1] || null;
+    return {i:idx, st:st, next:nx,
+      pct: nx ? Math.max(0, Math.min(100, Math.round((exp - st.at) / (nx.at - st.at) * 100))) : 100};
+  }
+  function petStats(){
+    var p = state.pet || petDefault();
+    var now = Date.now(), out = {};
+    PET_ACTS.forEach(function(a){
+      var last = (p.at && p.at[a.k]) || p.bornAt || now;
+      var mins = Math.max(0, (now - last) / 60000);
+      out[a.st] = Math.max(0, Math.min(100, Math.round(100 - mins * 100 / PET_EMPTY_MIN[a.st])));
+    });
+    return out;
+  }
+  function petDisplayName(){
+    var p = state.pet;
+    return (p && p.name) ? p.name : petKind(p ? p.kind : 'dog').n;
+  }
+  function petExpPatch(n){
+    var p = state.pet; if(!p) return;
+    var before = petStageInfo(p.exp).i;
+    p.exp = Math.max(0, (p.exp || 0) + n);
+    var after = petStageInfo(p.exp);
+    if(after.i > before){
+      setTimeout(function(){
+        banner('🎉', '우리 집 펫이 자랐어요!', petDisplayName() + ' → ' + after.st.n + ' 단계! 가족 모두 덕분이에요.', 9000);
+        confetti(30); chime('done');
+      }, 300);
+    }
+  }
+  function petCardHtml(full){
+    var p = state.pet;
+    var info = petStageInfo(p.exp);
+    var st = petStats();
+    var kind = petKind(p.kind);
+    var avg = Math.round((st.full + st.fun + st.clean) / 3);
+    var mood = avg >= 78 ? {e:'😊', t:'아주 좋아요'} : avg >= 50 ? {e:'🙂', t:'괜찮아요'} : avg >= 25 ? {e:'🥺', t:'돌봄이 필요해요'} : {e:'😢', t:'많이 배고파요'};
+    var weekCare = (p.care || []).filter(function(c){ return c.at >= startOfWeek(new Date()).getTime(); }).length;
+    var days = Math.max(1, Math.floor((Date.now() - (p.bornAt || Date.now())) / 86400000) + 1);
+    var right = '함께한 지 ' + days + '일째';
+
+    /* 홈용 미니 카드: 한눈에 상태만 */
+    if(!full){
+      return '<div class="card pet-card">' +
+        '<div class="card-h"><h2>🐾 우리 집 펫</h2><span class="right">' + right + '</span></div>' +
+        '<div class="pet-stage"><div class="pet-orb" style="width:68px;height:68px"><em style="font-size:' + Math.max(28, info.st.size - 12) + 'px">' + (info.i === 0 ? '🥚' : kind.e) + '</em>' + (info.st.crown ? '<span class="crown" style="font-size:13px">👑</span>' : '') + '</div>' +
+          '<div style="flex:1;min-width:0">' +
+            '<div class="pet-nm" style="font-size:15px">' + esc(petDisplayName()) + '<span class="pill" style="background:#FFF1F4;color:#B4506C">' + info.st.n + ' 단계</span></div>' +
+            '<div class="pet-meta">' + kind.n + ' · ' + mood.e + ' ' + mood.t + '</div>' +
+            '<div class="pet-exp"><span>경험치 ' + p.exp + '</span><span>' + (info.next ? info.next.n + '까지 ' + Math.max(0, info.next.at - p.exp) : '다 컸어요!') + '</span></div>' +
+            '<div class="prog" style="margin-top:5px"><i style="width:' + info.pct + '%"></i></div>' +
+          '</div></div>' +
+        '<div class="pet-mini-row">' + PET_ACTS.map(function(a){
+          return '<div class="pet-mini"><span class="e">' + a.e + '</span>' + a.s + '<b data-pet-mini="' + a.k + '">' + st[a.st] + '%</b></div>';
+        }).join('') + '</div>' +
+        '<button class="btn primary" style="width:100%;margin-top:10px;min-height:40px;font-size:12.5px" data-act="go-pet">🐾 펫 돌보러 가기</button></div>';
+    }
+
+    var html = '<div class="card pet-card">' +
+      '<div class="card-h"><h2>🐾 우리 집 펫</h2><span class="right">' + right + '</span></div>' +
+      '<div class="pet-stage"><div class="pet-orb"><em style="font-size:' + info.st.size + 'px">' + (info.i === 0 ? '🥚' : kind.e) + '</em>' + (info.st.crown ? '<span class="crown">👑</span>' : '') + '</div>' +
+        '<div style="flex:1;min-width:0">' +
+          '<div class="pet-nm">' + esc(petDisplayName()) + '<span class="pill" style="background:#FFF1F4;color:#B4506C">' + info.st.n + ' 단계</span></div>' +
+          '<div class="pet-meta">' + kind.n + ' · ' + mood.e + ' ' + mood.t + '</div>' +
+          '<div class="pet-exp"><span>경험치 ' + p.exp + '</span><span>' + (info.next ? info.next.n + '까지 ' + Math.max(0, info.next.at - p.exp) : '다 컸어요!') + '</span></div>' +
+          '<div class="prog" style="margin-top:5px"><i style="width:' + info.pct + '%"></i></div>' +
+        '</div></div>' +
+      '<div class="pet-bars">' + PET_ACTS.map(function(a){
+        var v = st[a.st];
+        var col = v >= 60 ? 'linear-gradient(90deg,#9FE0CE,#B8E6D9)' : v >= 30 ? 'linear-gradient(90deg,#FFD08A,#FFE9A8)' : 'linear-gradient(90deg,#FF9EB5,#FFC2CE)';
+        return '<div class="pet-bar"><span class="pb-l">' + a.e + ' ' + a.s + '</span>' +
+          '<div class="prog"><i data-pet-bar="' + a.k + '" style="width:' + v + '%;background:' + col + '"></i></div>' +
+          '<span class="pb-v" data-pet-pct="' + a.k + '">' + v + '%</span></div>';
+      }).join('') + '</div>' +
+      '<div class="care-grid">' + PET_ACTS.map(function(a){
+        var left = Math.ceil((a.cool * 60000 - (Date.now() - (p.at[a.k] || 0))) / 60000);
+        var cooling = left > 0;
+        return '<button class="care-btn" data-act="pet-care" data-k="' + a.k + '"' + (cooling ? ' disabled' : '') + ' aria-label="' + a.t + '">' +
+          '<span class="e">' + a.e + '</span><b>' + a.t + '</b><span>' + (cooling ? left + '분 뒤 또' : '+' + a.exp + ' 경험치') + '</span></button>';
+      }).join('') + '</div>';
+
+    html += '<div class="pet-row"><input id="petNameInput" type="text" maxlength="12" value="' + esc(p.name) + '" placeholder="펫 이름 (예: 몽이)" aria-label="펫 이름"><button class="btn soft" data-act="pet-name">이름 정하기</button></div>';
+    html += '<div style="font-size:10px;color:#A49CA2;font-weight:800;margin-top:11px">펫 종류</div><div class="kind-chips">' + PET_KINDS.map(function(k){
+      return '<button class="' + (p.kind === k.k ? 'on' : '') + '" data-act="pet-kind" data-k="' + k.k + '" aria-pressed="' + (p.kind === k.k) + '">' + k.e + ' ' + k.n + '</button>';
+    }).join('') + '</div>';
+    html += '<div class="pet-logbox"><div class="liv-sub" style="margin-bottom:4px">최근 돌봄</div>' +
+      ((p.care || []).slice(-4).reverse().map(function(c){
+        var f = FAMILY[c.who] || FAMILY.dad;
+        var a = petAct(c.k);
+        return '<div class="pet-log"><span>' + esc(f.name) + ' · ' + (a ? a.e + ' ' + a.t : '돌봄') + '</span><b>' + fmtClock(c.at) + '</b></div>';
+      }).join('') || '<div style="font-size:11px;color:#A49CA2;padding:4px 0">아직 돌봄 기록이 없어요. 밥부터 줘 볼까요?</div>') + '</div>';
+    html += '<div class="pet-note">이번 주 가족이 ' + weekCare + '번 함께 돌봤어요. 할 일·가족 미션·공부·독서를 해도 펫이 조금씩 자라요.</div>';
+    return html + '</div>';
+  }
+  function carePet(k, el){
+    var act = petAct(k), p = state.pet;
+    if(!act || !p) return;
+    var now = Date.now(), last = p.at[k] || 0, coolMs = act.cool * 60000;
+    if(now - last < coolMs){
+      toast(act.t + '은(는) ' + Math.ceil((coolMs - (now - last)) / 60000) + '분 뒤에 또 할 수 있어요');
+      return;
+    }
+    p.at[k] = now;
+    p.care.push({who:state.currentUser, k:k, at:now});
+    p.care = p.care.slice(-80);
+    petExpPatch(act.exp);
+    chime('done');
+    if(el) floatFrom(el, act.e, '+' + act.exp);
+    save(); renderAll();
+    toast(petDisplayName() + ' ' + act.s + '이 올라갔어요! 경험치 +' + act.exp);
+  }
+  function setPetName(){
+    var el = $('#petNameInput');
+    var v = ((el && el.value) || '').trim().slice(0,12);
+    if(!v){ toast('펫 이름을 적어 주세요'); if(el) el.focus(); return; }
+    state.pet.name = v;
+    save(); renderAll();
+    toast('펫 이름은 ' + v + '! 잘 부탁해 🐾');
+  }
+  function setPetKind(k){
+    if(!PET_KINDS.some(function(x){ return x.k === k; })) return;
+    state.pet.kind = k;
+    save(); renderAll();
+    toast(petKind(k).e + ' ' + petKind(k).n + '(으)로 정했어요');
+  }
+  function paintPetBars(){
+    if(!state.pet) return;
+    var st = petStats();
+    PET_ACTS.forEach(function(a){
+      var v = st[a.st];
+      var col = v >= 60 ? 'linear-gradient(90deg,#9FE0CE,#B8E6D9)' : v >= 30 ? 'linear-gradient(90deg,#FFD08A,#FFE9A8)' : 'linear-gradient(90deg,#FF9EB5,#FFC2CE)';
+      $$('[data-pet-bar="' + a.k + '"]').forEach(function(el){ el.style.width = v + '%'; el.style.background = col; });
+      $$('[data-pet-pct="' + a.k + '"]').forEach(function(el){ el.textContent = v + '%'; });
+      $$('[data-pet-mini="' + a.k + '"]').forEach(function(el){ el.textContent = v + '%'; });
+    });
+  }
+
+  /* ============================================================
+     기록 ②: 책 단위 독서기록
+     ============================================================ */
+  function bookStars(n){
+    n = Number(n) || 0;
+    var s = '';
+    for(var i=1;i<=5;i++){ s += (i <= n ? '★' : '☆'); }
+    return s;
+  }
+  function bookWhoName(w){ return (FAMILY[w] ? FAMILY[w].name : '가족').replace(/\(.*/, ''); }
+  function booksHtml(){
+    var list = (state.books || []).slice().sort(function(a,b){
+      return String(b.date || '').localeCompare(String(a.date || '')) || ((b.at || 0) - (a.at || 0));
+    });
+    var month = monthKey(new Date());
+    var weekStart = ymd(startOfWeek(new Date()));
+    var monthCount = list.filter(function(b){ return String(b.date || '').slice(0,7) === month; }).length;
+    var weekCount = list.filter(function(b){ return String(b.date || '') >= weekStart; }).length;
+    var rated = list.filter(function(b){ return (b.rating || 0) > 0; });
+    var avg = rated.length ? (rated.reduce(function(s,b){ return s + b.rating; }, 0) / rated.length) : 0;
+    var shown = bookFilter === 'all' ? list : list.filter(function(b){ return b.who === bookFilter; });
+
+    var stats = '<div class="grid2" style="margin-bottom:10px">' +
+      '<div class="stat" style="background:#F2F8FF"><b>' + monthCount + '권</b><span>이번 달 읽은 책</span></div>' +
+      '<div class="stat" style="background:#FFF8E4"><b>' + (avg ? avg.toFixed(1) : '—') + '</b><span>가족 평균 별점</span></div>' +
+      '</div>';
+    var filters = '<div class="chip-pick" style="margin-bottom:2px">' +
+      '<button class="' + (bookFilter === 'all' ? 'on' : '') + '" data-act="book-filter" data-k="all" aria-pressed="' + (bookFilter === 'all') + '">전체 ' + list.length + '</button>' +
+      ORDER.map(function(w){
+        var n = list.filter(function(b){ return b.who === w; }).length;
+        return '<button class="' + (bookFilter === w ? 'on' : '') + '" data-act="book-filter" data-k="' + w + '" aria-pressed="' + (bookFilter === w) + '">' + esc(bookWhoName(w)) + ' ' + n + '</button>';
+      }).join('') + '</div>';
+    var rows = shown.map(function(b){
+      var f = FAMILY[b.who] || FAMILY.dad;
+      return '<div class="book-item">' +
+        '<div class="book-h"><img src="' + f.img + '" alt=""><div class="book-t">' + esc(b.title) + '</div>' +
+          (b.rating ? '<span class="book-st" aria-label="별점 ' + b.rating + '점">' + bookStars(b.rating) + '</span>' : '') +
+          '<button class="book-del" data-act="book-del" data-id="' + b.id + '" aria-label="책 기록 삭제">×</button></div>' +
+        '<div class="book-d">' + esc(bookWhoName(b.who)) + ' · ' + esc(String(b.date || '').replace(/-/g, '.')) + (b.author ? ' · ' + esc(b.author) : '') + '</div>' +
+        (b.review ? '<div class="book-r">' + esc(b.review) + '</div>' : '') +
+        '</div>';
+    }).join('');
+
+    return '<div class="card">' +
+      '<div class="card-h"><h2>📚 책 단위 독서기록</h2><button class="mini-add" data-act="book-add">＋ 책 추가</button></div>' +
+      '<div style="font-size:11px;color:#8B8494;line-height:1.5;margin-bottom:9px">읽은 책을 한 권씩 남겨 보세요. 제목·날짜·별점·한줄평이 가족 기록으로 쌓여요.</div>' +
+      stats + filters +
+      (rows || '<div style="font-size:12px;color:#A49CA2;line-height:1.55;padding:8px 2px">' + (list.length ? '이 사람의 독서기록이 아직 없어요.' : '아직 기록한 책이 없어요. 첫 책을 남겨 볼까요?') + '</div>') +
+      '<div style="font-size:10px;color:#A49CA2;margin-top:9px">이번 주 ' + weekCount + '권 · 전체 ' + list.length + '권 · 독서를 기록하면 펫도 조금 자라요.</div>' +
+      '</div>';
+  }
+  function openBookModal(id){
+    var b = id ? (state.books || []).filter(function(x){ return x.id === id; })[0] : null;
+    bookDraft = b ? {id:b.id, who:b.who, title:b.title, author:b.author || '', date:b.date, rating:b.rating || 0, review:b.review || '', at:b.at || 0}
+                  : {id:'', who:state.currentUser, title:'', author:'', date:todayKey(), rating:0, review:'', at:0};
+    renderBookModal();
+  }
+  function syncBookDraft(){
+    if(!bookDraft) return;
+    var t = $('#bookTitle'), a = $('#bookAuthor'), d = $('#bookDate'), r = $('#bookReview');
+    if(t) bookDraft.title = t.value;
+    if(a) bookDraft.author = a.value;
+    if(d) bookDraft.date = d.value || todayKey();
+    if(r) bookDraft.review = r.value;
+  }
+  function renderBookModal(){
+    var d = bookDraft;
+    var stars = [1,2,3,4,5].map(function(v){
+      return '<button class="' + (d.rating >= v ? 'on' : '') + '" data-act="book-star" data-v="' + v + '" aria-label="별 ' + v + '개">★</button>';
+    }).join('');
+    openModal('<h3>📚 책 기록</h3><div class="sub">읽은 책을 한 권씩 남겨 두면 아이들 독서가 쌓여요.</div>' +
+      '<div class="field"><label>책 제목</label><input id="bookTitle" type="text" maxlength="60" value="' + esc(d.title) + '" placeholder="예: 어린 왕자"></div>' +
+      '<div class="field"><label>지은이 (선택)</label><input id="bookAuthor" type="text" maxlength="40" value="' + esc(d.author) + '" placeholder="예: 생텍쥐페리"></div>' +
+      '<div class="field"><label>누가 읽었나요</label><div class="chip-pick">' + ORDER.map(function(w){
+        return '<button class="' + (d.who === w ? 'on' : '') + '" data-act="book-who" data-w="' + w + '" aria-pressed="' + (d.who === w) + '">' + esc(bookWhoName(w)) + '</button>';
+      }).join('') + '</div></div>' +
+      '<div class="field"><label>읽은 날짜</label><input id="bookDate" type="date" value="' + esc(d.date) + '"></div>' +
+      '<div class="field"><label>별점</label><div class="stars-pick">' + stars + '</div></div>' +
+      '<div class="field"><label>한줄평 (선택)</label><textarea id="bookReview" rows="2" maxlength="200" placeholder="어땠는지 한 줄로 남겨요">' + esc(d.review) + '</textarea></div>' +
+      '<div class="modal-actions"><button class="btn ghost" data-close="1">취소</button><button class="btn primary" data-act="book-save">저장</button></div>');
+  }
+  function saveBook(){
+    syncBookDraft();
+    var d = bookDraft; if(!d) return;
+    var title = String(d.title || '').trim().slice(0,60);
+    if(!title){ toast('책 제목을 적어 주세요'); var t = $('#bookTitle'); if(t) t.focus(); return; }
+    var date = /^\d{4}-\d{2}-\d{2}$/.test(String(d.date || '')) ? d.date : todayKey();
+    if(d.id){
+      var b = state.books.filter(function(x){ return x.id === d.id; })[0];
+      if(b){ b.title = title; b.author = d.author; b.date = date; b.rating = d.rating; b.review = d.review; b.who = d.who; }
+      toast('책 기록을 고쳤어요');
+    } else {
+      state.books.push({id:uid(), who:FAMILY[d.who] ? d.who : state.currentUser, title:title, author:String(d.author || '').slice(0,40), date:date, rating:Number(d.rating) || 0, review:String(d.review || '').slice(0,200), at:Date.now()});
+      petExpPatch(4);
+      toast('📚 ' + title + ' 기록 완료! 펫 경험치 +4');
+      chime('done');
+    }
+    bookDraft = null;
+    save(); renderAll(); closeModal();
+  }
+  function delBook(id){
+    var b = (state.books || []).filter(function(x){ return x.id === id; })[0];
+    if(!b) return;
+    state.books = state.books.filter(function(x){ return x.id !== id; });
+    save(); renderAll();
+    toast('책 기록을 지웠어요');
+  }
+
+  /* ============================================================
+     기록 ③: 키·몸무게 성장 기록
+     ============================================================ */
+  function growthList(who){
+    return (state.growth || []).filter(function(g){ return g.who === who; })
+      .sort(function(a,b){ return String(a.date || '').localeCompare(String(b.date || '')) || ((a.at || 0) - (b.at || 0)); });
+  }
+  function sparkSvg(vals, color){
+    if(!vals || vals.length < 2) return '<div style="font-size:10px;color:#A49CA2;padding:9px 0">기록이 2개 이상이면 변화 그래프로 보여요</div>';
+    var min = Math.min.apply(null, vals), max = Math.max.apply(null, vals), span = (max - min) || 1;
+    var pts = vals.map(function(v, i){
+      var x = (i * 100 / (vals.length - 1)).toFixed(1);
+      var y = (40 - ((v - min) / span) * 30 - 5).toFixed(1);
+      return x + ',' + y;
+    }).join(' ');
+    return '<svg class="spark" viewBox="0 0 100 40" preserveAspectRatio="none" role="img" aria-label="변화 그래프">' +
+      '<polyline fill="none" stroke="' + color + '" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" points="' + pts + '"/></svg>';
+  }
+  function growthHtml(){
+    if(!FAMILY[growthWho]) growthWho = state.currentUser;
+    var who = growthWho, f = FAMILY[who];
+    var recs = growthList(who);
+    var last = recs[recs.length - 1] || null;
+    var prev = recs[recs.length - 2] || null;
+    var hs = recs.filter(function(g){ return g.height > 0; });
+    var ws = recs.filter(function(g){ return g.weight > 0; });
+    var dh = (last && prev && last.height && prev.height) ? +(last.height - prev.height).toFixed(1) : null;
+    var dw = (last && prev && last.weight && prev.weight) ? +(last.weight - prev.weight).toFixed(1) : null;
+    var first = recs[0] || null;
+
+    var chips = '<div class="chip-pick" style="margin-bottom:10px">' + ORDER.map(function(w){
+      var n = (state.growth || []).filter(function(g){ return g.who === w; }).length;
+      return '<button class="' + (who === w ? 'on' : '') + '" data-act="grow-who" data-w="' + w + '" aria-pressed="' + (who === w) + '">' + esc(bookWhoName(w)) + (n ? ' ' + n : '') + '</button>';
+    }).join('') + '</div>';
+
+    var boxes = '<div class="grow-sum">' +
+      '<div class="grow-box"><div class="lb">📏 키</div><div class="v">' + (last && last.height ? last.height : '—') + '<small>cm</small></div>' +
+        '<div class="dl ' + (dh !== null && dh < 0 ? 'down' : '') + '">' + (dh === null ? '이전 기록 없음' : (dh > 0 ? '▲ ' + dh + 'cm' : dh < 0 ? '▼ ' + Math.abs(dh) + 'cm' : '그대로')) + '</div>' +
+        sparkSvg(hs.slice(-12).map(function(g){ return g.height; }), '#8FD3C7') + '</div>' +
+      '<div class="grow-box"><div class="lb">⚖️ 몸무게</div><div class="v">' + (last && last.weight ? last.weight : '—') + '<small>kg</small></div>' +
+        '<div class="dl ' + (dw !== null && dw < 0 ? 'down' : '') + '">' + (dw === null ? '이전 기록 없음' : (dw > 0 ? '▲ ' + dw + 'kg' : dw < 0 ? '▼ ' + Math.abs(dw) + 'kg' : '그대로')) + '</div>' +
+        sparkSvg(ws.slice(-12).map(function(g){ return g.weight; }), '#FFB3A7') + '</div>' +
+      '</div>';
+
+    var list = recs.slice().reverse().slice(0, 10).map(function(g){
+      return '<div class="grow-rec"><span class="gd">' + esc(String(g.date || '').slice(5).replace('-', '.')) + '</span>' +
+        '<span class="gv">' + (g.height ? '키 <b>' + g.height + 'cm</b>' : '') + (g.height && g.weight ? ' · ' : '') + (g.weight ? '몸무게 <b>' + g.weight + 'kg</b>' : '') + '</span>' +
+        (g.note ? '<span class="gx" style="flex:none;max-width:34%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#A49CA2;font-size:10px">' + esc(g.note) + '</span>' : '') +
+        '<button class="gx" data-act="grow-del" data-id="' + g.id + '" aria-label="기록 삭제">×</button></div>';
+    }).join('');
+
+    var total = last && first && last.height && first.height ? +(last.height - first.height).toFixed(1) : null;
+
+    return '<div class="card">' +
+      '<div class="card-h"><h2>📏 키·몸무게 성장 기록</h2><button class="mini-add" data-act="grow-add">＋ 기록 추가</button></div>' +
+      chips +
+      (recs.length ? boxes +
+        '<div style="font-size:10.5px;color:#8B8494;font-weight:700;margin-top:9px">' + esc(f.name) + ' · 기록 ' + recs.length + '개' + (total !== null ? ' · 처음보다 ' + (total >= 0 ? '+' : '') + total + 'cm' : '') + (last ? ' · 마지막 ' + esc(String(last.date || '').replace(/-/g, '.')) : '') + '</div>' :
+        '<div style="font-size:12px;color:#A49CA2;line-height:1.55;padding:8px 2px">' + esc(f.name) + '의 기록이 아직 없어요. 키와 몸무게를 적어 두면 변화가 그래프로 보여요.</div>') +
+      (list ? '<div style="margin-top:11px;border-top:1px solid #F4EEE9;padding-top:5px">' + list + '</div>' : '') +
+      '</div>';
+  }
+  function openGrowthModal(who){
+    var recs = growthList(who || growthWho || state.currentUser);
+    var last = recs[recs.length - 1] || null;
+    growDraft = {who:who || growthWho || state.currentUser, date:todayKey(), height:'', weight:'', note:''};
+    if(last && last.date !== todayKey()){ /* 지난 값은 비워 두고 새로 적게 안내 */ }
+    renderGrowthModal();
+  }
+  function syncGrowDraft(){
+    if(!growDraft) return;
+    var d = $('#growDate'), h = $('#growHeight'), w = $('#growWeight'), n = $('#growNote');
+    if(d) growDraft.date = d.value || todayKey();
+    if(h) growDraft.height = h.value;
+    if(w) growDraft.weight = w.value;
+    if(n) growDraft.note = n.value;
+  }
+  function renderGrowthModal(){
+    var d = growDraft;
+    openModal('<h3>📏 키·몸무게 기록</h3><div class="sub">잰 날짜와 키·몸무게를 적어 주세요. 둘 중 하나만 적어도 돼요.</div>' +
+      '<div class="field"><label>누구 기록인가요</label><div class="chip-pick">' + ORDER.map(function(w){
+        return '<button class="' + (d.who === w ? 'on' : '') + '" data-act="grow-modal-who" data-w="' + w + '" aria-pressed="' + (d.who === w) + '">' + esc(bookWhoName(w)) + '</button>';
+      }).join('') + '</div></div>' +
+      '<div class="field"><label>잰 날짜</label><input id="growDate" type="date" value="' + esc(d.date) + '"></div>' +
+      '<div class="row" style="gap:8px"><div class="field" style="flex:1"><label>키 (cm)</label><input id="growHeight" type="number" inputmode="decimal" step="0.1" min="0" max="260" value="' + esc(d.height) + '" placeholder="예: 132.5"></div>' +
+      '<div class="field" style="flex:1"><label>몸무게 (kg)</label><input id="growWeight" type="number" inputmode="decimal" step="0.1" min="0" max="250" value="' + esc(d.weight) + '" placeholder="예: 28.4"></div></div>' +
+      '<div class="field"><label>메모 (선택)</label><input id="growNote" type="text" maxlength="40" value="' + esc(d.note) + '" placeholder="예: 학교 건강검진"></div>' +
+      '<div class="modal-actions"><button class="btn ghost" data-close="1">취소</button><button class="btn primary" data-act="grow-save">저장</button></div>');
+  }
+  function saveGrowth(){
+    syncGrowDraft();
+    var d = growDraft; if(!d) return;
+    var h = Number(d.height) || 0, w = Number(d.weight) || 0;
+    if(!h && !w){ toast('키나 몸무게 중 하나는 적어 주세요'); return; }
+    if(h < 0 || h > 260 || w < 0 || w > 250){ toast('숫자를 다시 확인해 주세요 (키 0~260cm, 몸무게 0~250kg)'); return; }
+    var date = /^\d{4}-\d{2}-\d{2}$/.test(String(d.date || '')) ? d.date : todayKey();
+    var who = FAMILY[d.who] ? d.who : state.currentUser;
+    var same = (state.growth || []).filter(function(g){ return g.who === who && g.date === date; })[0];
+    if(same){ same.height = h; same.weight = w; same.note = String(d.note || '').slice(0,40); same.at = Date.now(); }
+    else state.growth.push({id:uid(), who:who, date:date, height:h, weight:w, note:String(d.note || '').slice(0,40), at:Date.now()});
+    growthWho = who;
+    growDraft = null;
+    save(); renderAll(); closeModal();
+    toast('📏 ' + bookWhoName(who) + ' 성장 기록을 저장했어요');
+  }
+  function delGrowth(id){
+    state.growth = (state.growth || []).filter(function(g){ return g.id !== id; });
+    save(); renderAll();
+    toast('성장 기록을 지웠어요');
+  }
+
+  /* ============================================================
+     기록 ④: 주간 학습통계 리포트
+     ============================================================ */
+  function reportStart(off){ return addDays(startOfWeek(new Date()), -7 * (off || 0)); }
+  function weekAgg(start, limit){
+    var days = Math.max(1, Math.min(7, limit || 7));
+    var startKey = ymd(start), endKey = ymd(addDays(start, days - 1));   // 비교용(부분 주)이면 그 기간까지만 집계
+    var per = {}, t = {done:0, total:0, missions:0, allDays:0, stamps:0, study:0, sessions:0, books:0, care:0};
+    ORDER.forEach(function(w){ per[w] = {done:0, total:0, books:0}; });
+    var series = [];
+    for(var i=0;i<days;i++){
+      var dt = addDays(start, i), k = ymd(dt);
+      var d = state.days ? state.days[k] : null;
+      var row = {k:k, date:dt, done:0, study:0, mission:false, all:false};
+      if(d){
+        ORDER.forEach(function(w){
+          var l = (d.tasks && d.tasks[w]) || [];
+          var dn = l.filter(function(x){ return x.done; }).length;
+          per[w].done += dn; per[w].total += l.length; row.done += dn; t.total += l.length;
+        });
+        row.study = d.studyMinutes || 0;
+        row.mission = !!(d.mission && d.mission.done);
+        row.all = ORDER.some(function(w){ var l = (d.tasks && d.tasks[w]) || []; return l.length && l.every(function(x){ return x.done; }); });
+        t.sessions += d.studySessions || 0;
+      }
+      if(row.mission) t.missions++;
+      if(row.all) t.allDays++;
+      t.done += row.done; t.study += row.study;
+      series.push(row);
+    }
+    t.stamps = t.missions + t.allDays;
+    (state.books || []).forEach(function(b){
+      var bd = String(b.date || '');
+      if(bd >= startKey && bd <= endKey){ t.books++; if(per[b.who]) per[b.who].books++; }
+    });
+    var careFrom = start.getTime(), careTo = addDays(start, days).getTime();
+    (state.pet && Array.isArray(state.pet.care) ? state.pet.care : []).forEach(function(c){
+      if(c.at >= careFrom && c.at < careTo) t.care++;
+    });
+    return {per:per, t:t, series:series, start:start, end:addDays(start, 6), startKey:startKey, endKey:endKey};
+  }
+  function reportHtml(){
+    var thisWeek = reportOffset === 0;
+    var start = reportStart(reportOffset);
+    var todayIdx = (new Date().getDay() + 6) % 7;                                    // 0=월
+    var pLimit = thisWeek ? Math.min(7, todayIdx + 1) : 7;                            // 이번 주는 지난주 '같은 기간'과 비교
+    var a = weekAgg(start, 7);
+    var p = weekAgg(addDays(start, -7), pLimit);
+    var label = reportOffset === 0 ? '이번 주' : reportOffset === -1 ? '지난주' : (reportOffset > 0 ? '다음 주' : Math.abs(reportOffset) + '주 전');
+    var maxDone = Math.max.apply(null, a.series.map(function(s){ return s.done; }).concat([1]));
+
+    var bars = '<div class="wk-bars">' + a.series.map(function(s){
+      var px = s.done ? Math.max(6, Math.round(s.done / maxDone * 68)) : 3;
+      return '<div class="wb ' + (s.k === todayKey() ? 'today' : '') + '" title="' + s.k + ' · 할 일 ' + s.done + '개' + (s.study ? ' · 공부 ' + s.study + '분' : '') + '">' +
+        '<span class="c"' + (s.done ? '' : ' style="color:#C9C1BE"') + '>' + s.done + '</span>' +
+        '<div class="b" style="height:' + px + 'px"></div>' +
+        '<span class="n">' + weekdayKo(s.date) + '</span></div>';
+    }).join('') + '</div>' +
+      (a.t.done ? '' : '<div style="font-size:10.5px;color:#A49CA2;text-align:center;margin-top:4px">이 주에는 아직 완료한 할 일이 없어요.</div>');
+
+    var stats = '<div class="grid2" style="margin-top:11px">' +
+      '<div class="stat" style="background:#F7FCFA"><b>' + a.t.done + '개</b><span>완료한 할 일</span></div>' +
+      '<div class="stat" style="background:#FFF9F0"><b>' + a.t.study + '분</b><span>가족 공부 시간</span></div>' +
+      '<div class="stat" style="background:#F5F3FF"><b>' + a.t.stamps + '개</b><span>도장 (미션·할 일)</span></div>' +
+      '<div class="stat" style="background:#FFF2F5"><b>' + a.t.books + '권</b><span>읽은 책</span></div>' +
+      '</div>';
+
+    var diffDone = a.t.done - p.t.done, diffStudy = a.t.study - p.t.study, diffBooks = a.t.books - p.t.books;
+    var delta = function(n, unit){
+      if(!n) return '<b>그대로</b>';
+      return '<b class="' + (n > 0 ? 'up' : 'down') + '">' + (n > 0 ? '▲' + n : '▼' + Math.abs(n)) + unit + '</b>';
+    };
+    var prevLabel = (thisWeek && pLimit < 7) ? ('지난주 같은 기간(' + weekdayKo(addDays(start, -7)) + '~' + weekdayKo(addDays(start, -7 + pLimit - 1)) + ')은') : '지난주는';
+    var ups = (diffDone > 0 ? 1 : 0) + (diffStudy > 0 ? 1 : 0) + (diffBooks > 0 ? 1 : 0);
+    var downs = (diffDone < 0 ? 1 : 0) + (diffStudy < 0 ? 1 : 0) + (diffBooks < 0 ? 1 : 0);
+    var verdict = ups > downs ? '이번 주에도 잘하고 있어요 👏' : (ups === downs ? '지난주와 비슷해요.' : '이번 주는 조금 적어요. 다음 주에 다시 힘내요!');
+    var cmp = '<div class="wk-cmp">' + prevLabel + ' 할 일 <b>' + p.t.done + '개</b> · 공부 <b>' + p.t.study + '분</b> · 책 <b>' + p.t.books + '권</b><br>' +
+      '이번 주는 할 일 ' + delta(diffDone, '개') + ' · 공부 ' + delta(diffStudy, '분') + ' · 책 ' + delta(diffBooks, '권') +
+      '<br><span style="color:#8B8494">' + verdict + '</span></div>';
+
+    var best = null;
+    ORDER.forEach(function(w){ if(!best || a.per[w].done > a.per[best].done) best = w; });
+    var rows = ORDER.map(function(w){
+      var f = FAMILY[w], q = a.per[w];
+      var pct = q.total ? Math.round(q.done / q.total * 100) : 0;
+      return '<div class="wk-p"><div class="h"><img src="' + f.img + '" alt=""><b>' + f.name + '</b>' +
+        '<span class="r">' + q.done + '/' + q.total + ' · ' + pct + '%</span></div>' +
+        '<div class="prog"><i style="width:' + pct + '%;background:' + f.color + '"></i></div>' +
+        '<div class="m"><span>✅ 할 일 ' + q.done + '개</span><span>📚 책 ' + q.books + '권</span>' +
+        (q.total > q.done ? '<span>남은 할 일 ' + (q.total - q.done) + '개</span>' : '<span>이번 주 모두 완료!</span>') + '</div></div>';
+    }).join('');
+
+    var summary = '<div class="card" style="background:linear-gradient(135deg,#F4FBF8,#FFF8F0)">' +
+      '<div class="card-h"><h2>📊 주간 학습 리포트</h2><span class="right">' + label + '</span></div>' +
+      '<div class="row" style="margin-bottom:2px">' +
+        '<button class="mini-add" data-act="report-nav" data-d="-1">‹ 이전 주</button>' +
+        '<span style="flex:1;text-align:center;font-size:11.5px;font-weight:800;color:#6E6672">' + (a.start.getMonth()+1) + '/' + a.start.getDate() + ' ~ ' + (a.end.getMonth()+1) + '/' + a.end.getDate() + '</span>' +
+        '<button class="mini-add" data-act="report-nav" data-d="1"' + (reportOffset >= 0 ? ' disabled style="opacity:.4"' : '') + '>다음 주 ›</button>' +
+      '</div>' +
+      bars + stats + cmp +
+      (reportOffset !== 0 ? '<div style="text-align:right;margin-top:6px"><button class="mini-add" data-act="report-nav" data-d="0">이번 주로 돌아가기</button></div>' : '') +
+      '</div>';
+
+    var people = '<div class="card">' +
+      '<div class="card-h"><h2>👨‍👩‍👧‍👦 가족별 기록</h2><span class="right">' + (best ? '할 일 최고 ' + FAMILY[best].name : '') + '</span></div>' +
+      rows +
+      '<div class="wk-cmp">가족 미션 <b>' + a.t.missions + '번</b> · 도장 <b>' + a.t.stamps + '개</b> · 공부 <b>' + a.t.study + '분</b> · 펫 돌봄 <b>' + a.t.care + '번</b>' + (a.t.sessions ? ' · 타이머 ' + a.t.sessions + '회' : '') + '</div>' +
+      '</div>';
+
+    return summary + people;
+  }
+
+  /* ============================================================
+     기록 탭 전체 렌더
+     ============================================================ */
+  function renderRecordTab(){
+    var box = $('#recordTab');
+    if(!box) return;
+    var tabs = [
+      {k:'pet',    e:'🐾', t:'펫'},
+      {k:'books',  e:'📚', t:'독서'},
+      {k:'growth', e:'📏', t:'키·몸무게'},
+      {k:'report', e:'📊', t:'주간 리포트'}
+    ];
+    var chips = '<div class="rec-chips">' + tabs.map(function(c){
+      var on = recTab === c.k;
+      return '<button class="' + (on ? 'on' : '') + '" data-act="rec-tab" data-k="' + c.k + '"' + (on ? ' aria-current="true"' : '') + '>' + c.e + ' ' + c.t + '</button>';
+    }).join('') + '</div>';
+    var body = recTab === 'books' ? booksHtml() : recTab === 'growth' ? growthHtml() : recTab === 'report' ? reportHtml() : petCardHtml(true);
+    box.innerHTML = chips + body;
   }
 
   /* ============================================================
@@ -2426,6 +3136,7 @@
     renderAlarmCard();
     renderBatchCard();
     renderLivingTab();
+    renderRecordTab();
     renderSettings();
     applyTheme();
     updateSyncUI(syncConfigured() ? (state.sync.lastSync ? '연결됨 · ' + fmtClock(state.sync.lastSync) : '연결됨') : '로컬 저장', true);
@@ -2443,6 +3154,7 @@
     if(tab === 'chat'){ renderChat(); var box = $('#chatScroll'); if(box) box.scrollTop = box.scrollHeight; }
     if(tab === 'study'){ renderTimerCard(); renderStudyStats(); }
     if(tab === 'living'){ renderLivingTab(); }
+    if(tab === 'record'){ renderRecordTab(); }
     if(tab === 'settings'){ renderSettings(); }
     window.scrollTo(0, 0);
     switchTab.current = tab;
@@ -2468,6 +3180,28 @@
       case 'chore': selectChore(el.dataset.i); break;
       case 'roulette': spinRoulette(); break;
       case 'reward-redeem': redeemReward(el.dataset.id); break;
+      case 'rec-tab': recTab = el.dataset.k || 'pet'; renderRecordTab(); window.scrollTo(0, 0); break;
+      case 'go-pet': recTab = 'pet'; switchTab('record'); break;
+      case 'pet-care': carePet(el.dataset.k, el); break;
+      case 'pet-name': setPetName(); break;
+      case 'pet-kind': setPetKind(el.dataset.k); break;
+      case 'book-add': openBookModal(''); break;
+      case 'book-save': saveBook(); break;
+      case 'book-del': delBook(el.dataset.id); break;
+      case 'book-filter': bookFilter = el.dataset.k || 'all'; renderRecordTab(); break;
+      case 'book-star': if(bookDraft){ syncBookDraft(); bookDraft.rating = Number(el.dataset.v) || 0; renderBookModal(); } break;
+      case 'book-who': if(bookDraft){ syncBookDraft(); bookDraft.who = el.dataset.w; renderBookModal(); } break;
+      case 'grow-add': openGrowthModal(growthWho || state.currentUser); break;
+      case 'grow-save': saveGrowth(); break;
+      case 'grow-del': delGrowth(el.dataset.id); break;
+      case 'grow-who': growthWho = el.dataset.w; renderRecordTab(); break;
+      case 'grow-modal-who': if(growDraft){ syncGrowDraft(); growDraft.who = el.dataset.w; renderGrowthModal(); } break;
+      case 'report-nav':
+        var nd = Number(el.dataset.d) || 0;
+        reportOffset = el.dataset.d === '0' ? 0 : Math.max(-12, Math.min(0, reportOffset + nd));
+        renderRecordTab();
+        window.scrollTo(0, 0);
+        break;
       case 'theme': toggleTheme(); break;
       case 'calendar': openCalendar(); break;
       case 'cal-prev': calCursor = new Date(calCursor.getFullYear(), calCursor.getMonth()-1, 1); renderCalendarModal(); break;
@@ -2533,6 +3267,7 @@
     if(id === 'chatInput'){ e.preventDefault(); sendChat(); }
     else if(id === 'shopInput'){ e.preventDefault(); addShopping(); }
     else if(id === 'menuInput'){ e.preventDefault(); addMenuOption(); }
+    else if(id === 'petNameInput'){ e.preventDefault(); setPetName(); }
   });
 
   window.addEventListener('hashchange', function(){ applyInvite(); });
