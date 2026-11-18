@@ -2991,7 +2991,7 @@
   /* ============================================================
      기록 ④: 주간 학습통계 리포트
      ============================================================ */
-  function reportStart(off){ return addDays(startOfWeek(new Date()), -7 * (off || 0)); }
+  function reportStart(off){ return addDays(startOfWeek(new Date()), 7 * (off || 0)); }
   function weekAgg(start, limit){
     var days = Math.max(1, Math.min(7, limit || 7));
     var startKey = ymd(start), endKey = ymd(addDays(start, days - 1));   // 비교용(부분 주)이면 그 기간까지만 집계
